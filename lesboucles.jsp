@@ -28,31 +28,12 @@
 <h2>Exercice 1 : Le carré d'étoiles</h2>
 <p>Ecrire le code afin de produire un carré d'étoile</p>
 <p>Exemple si l'utilisateur saisie le valeur 5</p>
-<p> import java.util.Scanner;
-
-public class CarreEtoiles {
-    public static void main(String[] args) {
-        // Création d'un scanner pour lire l'entrée de l'utilisateur
-        Scanner scanner = new Scanner(System.in);
-
-        // Demander à l'utilisateur de saisir la taille du carré
-        System.out.print("Entrez la taille du carré : ");
-        int n = scanner.nextInt();
-
-        // Générer le carré d'étoiles
-        for (int i = 0; i < n; i++) {
-            // Afficher une ligne de n étoiles
-            for (int j = 0; j < n; j++) {
-                System.out.print("*");
-            }
-            // Passer à la ligne suivante après avoir imprimé une ligne d'étoiles
-            System.out.println();
-        }
-
-        // Fermer le scanner
-        scanner.close();
-    }
-} </p>
+<p><% for (int i = 1; i <= cpt; i++) { %>
+       <% for (int j = 1; j <= cpt; j++) { %>
+           <%= "*" %>
+       <% } %>
+    </p>
+<% } %>
 
 <h2>Exercice 2 : Triangle rectangle gauche</h2>
 <p>Ecrire le code afin de produire un triangle rectangle aligné sur la gauche</p>
