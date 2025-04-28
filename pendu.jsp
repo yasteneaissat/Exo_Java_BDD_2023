@@ -46,7 +46,7 @@
         .restart-btn {
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #red;
+            background-color: #218838;
             color: white;
             border: none;
             border-radius: 5px;
