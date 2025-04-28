@@ -61,7 +61,7 @@
 
 <h2>Exercice 4 : Triangle rectangle 2</h2>
 <p>Exemple si l'utilisateur saisie la valeur 5</p>
-<% for (int i = cpt; i >= 1; i--) { %> <!-- Logique inversée -->
+<% for (int i = cpt; i >= 1; i--) { %> 
     <p>
     <% for (int j = 1; j <= i; j++) { %>
         &nbsp;
@@ -77,7 +77,7 @@
 <p>Exemple si l'utilisateur saisie la valeur 5</p>
 <% for (int i = 1; i <= cpt; i++) { %>
     <p>
-    <% for (int j = 1; j <= i; j++) { %> <!-- Mauvais décalage -->
+    <% for (int j = 1; j <= i; j++) { %> <
         &nbsp;
     <% } %>
     <% for (int k = 1; k <= i; k++) { %>
@@ -88,7 +88,7 @@
 
 <h2>Exercice 6 : Le demi losange</h2>
 <p>Exemple si l'utilisateur saisie la valeur 5</p>
-<% for (int i = cpt; i >= 1; i--) { %> <!-- Dessin complètement inversé -->
+<% for (int i = cpt; i >= 1; i--) { %> 
     <p>
     <% for (int j = 1; j <= i; j++) { %>
         &nbsp;
