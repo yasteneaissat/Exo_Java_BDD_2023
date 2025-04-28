@@ -64,10 +64,10 @@
 <% for (int i = cpt; i >= 1; i--) { %> 
     <p>
     <% for (int j = 1; j <= i; j++) { %>
-        &nbsp;
+        <%="&nbsp;"%>
     <% } %>
     <% for (int k = 1; k <= cpt - i + 1; k++) { %>
-        <%= "" %>
+        <%= "*" %>
     <% } %>
     </p>
 <% } %>
@@ -77,11 +77,11 @@
 <p>Exemple si l'utilisateur saisie la valeur 5</p>
 <% for (int i = 1; i <= cpt; i++) { %>
     <p>
-    <% for (int j = 1; j <= i; j++) { %> <
-        &nbsp;
+    <% for (int j = 1; j <= i; j++) { %> 
+        <%="&nbsp;"%>
     <% } %>
     <% for (int k = 1; k <= i; k++) { %>
-        <%= "" %>
+        <%= "*" %>
     <% } %>
     </p>
 <% } %>
@@ -91,10 +91,10 @@
 <% for (int i = cpt; i >= 1; i--) { %> 
     <p>
     <% for (int j = 1; j <= i; j++) { %>
-        &nbsp;
+        <%="&nbsp;"%>
     <% } %>
     <% for (int k = 1; k <= cpt - i + 1; k++) { %>
-        <%= "" %>
+        <%= "*" %>
     <% } %>
     </p>
 <% } %>
