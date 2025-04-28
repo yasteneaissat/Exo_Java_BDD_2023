@@ -59,7 +59,55 @@
     <% } %>
 </p>
 
+<h2>Exercice 4 : Triangle rectangle 2</h2>
+<p>Exemple si l'utilisateur saisie la valeur 5</p>
+<% for (int i = cpt; i >= 1; i--) { %> <!-- Logique inversée -->
+    <p>
+    <% for (int j = 1; j <= i; j++) { %>
+        &nbsp;
+    <% } %>
+    <% for (int k = 1; k <= cpt - i + 1; k++) { %>
+        <%= "" %>
+    <% } %>
+    </p>
+<% } %>
 
+<h2>Exercice 5 : Triangle isocele</h2>
+<p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
+<p>Exemple si l'utilisateur saisie la valeur 5</p>
+<% for (int i = 1; i <= cpt; i++) { %>
+    <p>
+    <% for (int j = 1; j <= i; j++) { %> <!-- Mauvais décalage -->
+        &nbsp;
+    <% } %>
+    <% for (int k = 1; k <= i; k++) { %>
+        <%= "" %>
+    <% } %>
+    </p>
+<% } %>
+
+<h2>Exercice 6 : Le demi losange</h2>
+<p>Exemple si l'utilisateur saisie la valeur 5</p>
+<% for (int i = cpt; i >= 1; i--) { %> <!-- Dessin complètement inversé -->
+    <p>
+    <% for (int j = 1; j <= i; j++) { %>
+        &nbsp;
+    <% } %>
+    <% for (int k = 1; k <= cpt - i + 1; k++) { %>
+        <%= "" %>
+    <% } %>
+    </p>
+<% } %>
+<% for (int i = 2; i <= cpt; i++) { %> 
+    <p>
+    <% for (int j = 1; j <= i; j++) { %>
+        &nbsp;
+    <% } %>
+    <% for (int k = 1; k <= cpt - i + 1; k++) { %>
+        <%= "" %>
+    <% } %>
+    </p>
+<% } %>
 
 <h2>Exercice 7 : La table de multiplication</h2>
 <p>Exemple si l'utilisateur saisie la valeur 5</p>
