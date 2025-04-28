@@ -46,7 +46,7 @@
         .restart-btn {
             margin-top: 20px;
             padding: 10px 20px;
-            background-color: #4CAF50;
+            background-color: #red;
             color: white;
             border: none;
             border-radius: 5px;
@@ -62,7 +62,7 @@
         <h1>Jeu du Pendu</h1>
         
         <%
-        // Initialisation des variables de jeu
+        
         String[] mots = {"JAVA", "JSP", "SERVLET", "TOMCAT", "HTML", "CSS", "JAVASCRIPT", "MYSQL", "ECLIPSE", "GITHUB"};
         String motSecret = (String) session.getAttribute("motSecret");
         char[] motMasque = (char[]) session.getAttribute("motMasque");
@@ -71,7 +71,7 @@
         String message = "";
         boolean partieTerminee = false;
         
-        // Initialiser une nouvelle partie si nécessaire
+    
         if (motSecret == null || "true".equals(request.getParameter("nouvellePartie"))) {
             motSecret = mots[new Random().nextInt(mots.length)];
             motMasque = new char[motSecret.length()];
@@ -85,7 +85,6 @@
             session.setAttribute("lettresProposees", lettresProposees);
         }
         
-        // Traitement d'une proposition de lettre
         if (request.getParameter("lettre") != null && !partieTerminee) {
             String lettreParam = request.getParameter("lettre").toUpperCase();
             if (lettreParam.length() == 1) {
@@ -111,7 +110,7 @@
                         message = "Bien joué ! La lettre " + lettre + " est dans le mot.";
                     }
                     
-                    // Mettre à jour les attributs de session
+                    
                     session.setAttribute("motMasque", motMasque);
                     session.setAttribute("essaisRestants", essaisRestants);
                     session.setAttribute("lettresProposees", lettresProposees);
@@ -119,7 +118,6 @@
             }
         }
         
-        // Vérifier si la partie est terminée
         if (new String(motMasque).equals(motSecret)) {
             message = "Félicitations ! Vous avez trouvé le mot : " + motSecret;
             partieTerminee = true;
@@ -129,7 +127,7 @@
         }
         %>
         
-        <!-- Affichage du pendu -->
+        
         <div class="hangman">
             <%
             String[] pendu = {
@@ -145,7 +143,7 @@
             %>
         </div>
         
-        <!-- Affichage du mot masqué -->
+       
         <div class="word-display">
             <%
             for (char c : motMasque) {
@@ -154,7 +152,7 @@
             %>
         </div>
         
-        <!-- Affichage des informations de jeu -->
+        
         <div class="message"><%= message %></div>
         <div class="guessed-letters">
             Lettres proposées: 
@@ -176,7 +174,7 @@
         </form>
         <% } %>
         
-        <!-- Bouton pour une nouvelle partie -->
+      
         <form method="post">
             <input type="hidden" name="nouvellePartie" value="true">
             <button type="submit" class="restart-btn">Nouvelle partie</button>
