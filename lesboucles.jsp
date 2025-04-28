@@ -60,11 +60,11 @@
 </p>
 
 <h2>Exercice 4 : Triangle rectangle 2</h2>
-<p>Exemple si l'utilisateur saisie la valeur 5</p>
+<p>Voici le triangle rectangle aligné sur la droite :</p>
 <% for (int i = 1; i <= cpt; i++) { %>
     <p>
     <% for (int j = 1; j <= cpt - i; j++) { %>
-        &nbsp;
+        <%= "&nbsp;" %>
     <% } %>
     <% for (int k = 1; k <= i; k++) { %>
         <%= "" %>
@@ -72,36 +72,37 @@
     </p>
 <% } %>
 
-<h2>Exercice 5 : Triangle isocele</h2>
-<p>Ecrire le code afin de produire un triangle rectangle aligné sur la droite</p>
-<p>Exemple si l'utilisateur saisie la valeur 5</p>
+<h2>Exercice 5 : Triangle isocèle</h2>
+<p>Voici le triangle isocèle :</p>
 <% for (int i = 1; i <= cpt; i++) { %>
     <p>
     <% for (int j = 1; j <= cpt - i; j++) { %>
-        &nbsp;
+        <%= "&nbsp;" %>
     <% } %>
-    <% for (int k = 1; k <= i; k++) { %>
-        <%= "" %>
+    <% for (int k = 1; k <= (2 i - 1); k++) { %>
+        <%= "*" %>
     <% } %>
     </p>
 <% } %>
-
 <h2>Exercice 6 : Le demi losange</h2>
-<p>Exemple si l'utilisateur saisie la valeur 5</p>
+<p>Voici le demi-losange :</p>
+<%-- Partie croissante du losange --%>
 <% for (int i = 1; i <= cpt; i++) { %>
     <p>
     <% for (int j = 1; j <= cpt - i; j++) { %>
-        &nbsp;
+        <%= "&nbsp;" %>
     <% } %>
     <% for (int k = 1; k <= i; k++) { %>
         <%= "" %>
     <% } %>
     </p>
 <% } %>
+
+<%-- Partie décroissante du losange --%>
 <% for (int i = cpt - 1; i >= 1; i--) { %>
     <p>
     <% for (int j = 1; j <= cpt - i; j++) { %>
-        &nbsp;
+        <%= "&nbsp;" %>
     <% } %>
     <% for (int k = 1; k <= i; k++) { %>
         <%= "" %>
