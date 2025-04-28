@@ -4,10 +4,10 @@
 
 <html>
 <head>
-<title>Mini Gestionnaire de Tâches</title>
+<title>Gestionnaire de Tâches</title>
 </head>
 <body bgcolor="white">
-<h1>Mini Gestionnaire de Tâches</h1>
+<h1>Gestionnaire de Tâches</h1>
 
 <h2>Ajouter une Tâche</h2>
 <form action="taches.jsp" method="post">
