@@ -38,10 +38,10 @@
     </style>
 </head>
 <body>
-    <h1>ASCII Art Generator</h1>
+    <h1>Générateur D'art ASCII</h1>
 
     <form method="post">
-        <label for="inputText">Entrez un mot :</label>
+        <label for="inputText">Entrez votre mot:</label>
         <input type="text" id="inputText" name="inputText" required />
         <button type="submit">Afficher</button>
     </form>
