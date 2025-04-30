@@ -11,10 +11,10 @@
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #f5f5f5;
+            background-color: #d0e7ff;
         }
         .ascii-container {
-            background-color: white;
+            background-color: #ffe6e6;
             padding: 20px;
             border-radius: 10px;
             margin-top: 20px;
