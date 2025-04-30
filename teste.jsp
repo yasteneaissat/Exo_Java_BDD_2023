@@ -24,7 +24,6 @@
         int L = 4; // largeur de chaque lettre
         int H = 5; // hauteur
 
-        // Alphabet ASCII style CodinGame, 27 lettres (A-Z + ?)
         String[] rows = {
             " #  ##   ##  # # ### ###  ##  ### ### # # ### ### ###  ##  ### ### # # # # ### ###  ? ",
             "# # # # #   # # #   #  # # #   #     # # # #   #     # # # #   #   # # # # #   #     ? ",
@@ -37,27 +36,23 @@
         for (int i = 0; i < H; i++) output[i] = new StringBuilder();
 
         for (char c : input.toCharArray()) {
-            int index = (c >= 'A' && c <= 'Z') ? c - 'A' : 26; // 26 = ?
+            int index = (c >= 'A' && c <= 'Z') ? c - 'A' : 26;
             int start = index * L;
-            int end = start + L;
 
             for (int i = 0; i < H; i++) {
-                output[i].append(rows[i].substring(start, end));
+                output[i].append(rows[i].substring(start, start + L));
             }
         }
 %>
     <div class="ascii">
 <%
         for (int i = 0; i < H; i++) {
-%>
-        <%= output[i].toString() %><br/>
-<%
+            out.println(output[i].toString());
         }
-    }
 %>
     </div>
+<%
+    }
+%>
 </body>
 </html>
-
-
-
