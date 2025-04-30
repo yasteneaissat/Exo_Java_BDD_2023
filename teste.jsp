@@ -1,16 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>ASCII Art en JSP</title>
+    <title>ASCII Art - Générateur JSP</title>
     <style>
-        body { font-family: monospace; background: #f0f0f0; padding: 20px; }
-        .ascii { background: white; border: 1px solid #ccc; padding: 10px; white-space: pre; }
+        body { font-family: monospace; background-color: #f5f5f5; padding: 20px; }
+        .ascii { background: white; border: 1px solid #ccc; padding: 15px; white-space: pre; }
+        input[type="text"] { width: 200px; font-size: 1em; }
     </style>
 </head>
 <body>
-    <h2>Générateur d'ASCII Art</h2>
+    <h2>ASCII Art (style CodinGame)</h2>
     <form method="post">
-        <label>Texte :</label>
+        <label>Entrez du texte :</label>
         <input type="text" name="text" value="<%= request.getParameter("text") != null ? request.getParameter("text") : "" %>" />
         <input type="submit" value="Générer" />
     </form>
@@ -18,7 +19,7 @@
 <%
     String input = request.getParameter("text");
     if (input != null && !input.trim().isEmpty()) {
-        input = input.toUpperCase();
+        input = input.toUpperCase().replaceAll("[^A-Z]", "?");
 
         int L = 4;
         int H = 5;
@@ -31,24 +32,26 @@
             "# # ##   ## # # ### #   ##  ###   #  # # ### # #   #  # # ### ###   #   # # ### #    ? "
         };
 
-        String[] output = new String[H];
+        StringBuilder[] output = new StringBuilder[H];
         for (int i = 0; i < H; i++) {
-            StringBuilder line = new StringBuilder();
-            for (char c : input.toCharArray()) {
-                int index = c - 'A';
-                if (index < 0 || index > 25) index = 26; // pour caractères non alphabétiques
-                int start = index * L;
-                int end = start + L;
-                line.append(rows[i].substring(start, end));
+            output[i] = new StringBuilder();
+        }
+
+        for (char c : input.toCharArray()) {
+            int index = (c >= 'A' && c <= 'Z') ? (c - 'A') : 26;
+            int start = index * L;
+            int end = start + L;
+
+            for (int i = 0; i < H; i++) {
+                output[i].append(rows[i], start, end);
             }
-            output[i] = line.toString();
         }
 %>
     <div class="ascii">
 <%
-        for (String line : output) {
+        for (int i = 0; i < H; i++) {
 %>
-        <%= line %><br>
+        <%= output[i].toString() %><br/>
 <%
         }
     }
@@ -56,4 +59,5 @@
     </div>
 </body>
 </html>
+
 
