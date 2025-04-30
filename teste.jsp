@@ -1,17 +1,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>ASCII Art - Générateur JSP</title>
+    <title>ASCII Art</title>
     <style>
-        body { font-family: monospace; background-color: #f5f5f5; padding: 20px; }
+        body { font-family: monospace; background: #f0f0f0; padding: 20px; }
         .ascii { background: white; border: 1px solid #ccc; padding: 15px; white-space: pre; }
-        input[type="text"] { width: 200px; font-size: 1em; }
+        input[type="text"] { font-family: monospace; width: 250px; }
     </style>
 </head>
 <body>
-    <h2>ASCII Art (style CodinGame)</h2>
+    <h2>Générateur ASCII Art (style CodinGame)</h2>
     <form method="post">
-        <label>Entrez du texte :</label>
+        <label>Texte :</label>
         <input type="text" name="text" value="<%= request.getParameter("text") != null ? request.getParameter("text") : "" %>" />
         <input type="submit" value="Générer" />
     </form>
@@ -21,9 +21,10 @@
     if (input != null && !input.trim().isEmpty()) {
         input = input.toUpperCase().replaceAll("[^A-Z]", "?");
 
-        int L = 4;
-        int H = 5;
+        int L = 4; // largeur de chaque lettre
+        int H = 5; // hauteur
 
+        // Alphabet ASCII style CodinGame, 27 lettres (A-Z + ?)
         String[] rows = {
             " #  ##   ##  # # ### ###  ##  ### ### # # ### ### ###  ##  ### ### # # # # ### ###  ? ",
             "# # # # #   # # #   #  # # #   #     # # # #   #     # # # #   #   # # # # #   #     ? ",
@@ -33,17 +34,15 @@
         };
 
         StringBuilder[] output = new StringBuilder[H];
-        for (int i = 0; i < H; i++) {
-            output[i] = new StringBuilder();
-        }
+        for (int i = 0; i < H; i++) output[i] = new StringBuilder();
 
         for (char c : input.toCharArray()) {
-            int index = (c >= 'A' && c <= 'Z') ? (c - 'A') : 26;
+            int index = (c >= 'A' && c <= 'Z') ? c - 'A' : 26; // 26 = ?
             int start = index * L;
             int end = start + L;
 
             for (int i = 0; i < H; i++) {
-                output[i].append(rows[i], start, end);
+                output[i].append(rows[i].substring(start, end));
             }
         }
 %>
@@ -59,5 +58,6 @@
     </div>
 </body>
 </html>
+
 
 
