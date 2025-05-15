@@ -1,23 +1,28 @@
-public class Chaine {
-    public static void main(String[] args) {
-        String bonjour = "salut la compagnie";
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Manipulation de chaîne</title>
+</head>
+<body>
+<%
+    String bonjour = "salut la compagnie";
 
-        // Affichage en majuscules
-        System.out.println("En majuscules : " + bonjour.toUpperCase());
+    // Chaîne en majuscules
+    String majuscules = bonjour.toUpperCase();
 
-        // Affichage avec seulement la première lettre en majuscule
-        String capitalisee = capitalizeFirstLetter(bonjour);
-        System.out.println("Première lettre en majuscule : " + capitalisee);
+    // Première lettre en majuscule
+    String capitalisee = "";
+    if (bonjour != null && bonjour.length() > 0) {
+        capitalisee = bonjour.substring(0, 1).toUpperCase() + bonjour.substring(1);
     }
+%>
 
-    // Méthode pour mettre uniquement la première lettre en majuscule
-    public static String capitalizeFirstLetter(String texte) {
-        if (texte == null || texte.isEmpty()) {
-            return texte;
-        }
-        return texte.substring(0, 1).toUpperCase() + texte.substring(1);
-    }
-}
+<h2>Chaîne originale : <%= bonjour %></h2>
+<h2>En majuscules : <%= majuscules %></h2>
+<h2>Première lettre en majuscule : <%= capitalisee %></h2>
 
-
+</body>
+</html>
 
