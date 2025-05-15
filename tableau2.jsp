@@ -58,4 +58,50 @@
             width: 400px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        input,
+        input, button {
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+        .message {
+            color: green;
+            margin-top: 10px;
+        }
+        .erreur {
+            color: red;
+        }
+        ul {
+            padding-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Gestion du Tableau</h2>
+        <form method="post">
+            <label for="valeur">Ajouter une valeur :</label><br>
+            <input type="text" name="valeur" id="valeur" placeholder="Entier" />
+            <button type="submit" name="action" value="ajouter">Ajouter</button><br><br>
+
+            <button type="submit" name="action" value="supprimer">Supprimer la dernière</button>
+            <button type="submit" name="action" value="afficher">Afficher le tableau</button>
+            <button type="submit" name="action" value="vider">Vider le tableau</button>
+        </form>
+
+        <% if (!message.isEmpty()) { %>
+            <p class="message"><%= message %></p>
+        <% } %>
+
+        <% if (!tableau.isEmpty()) { %>
+            <h3>Contenu du tableau :</h3>
+            <ul>
+                <% for (Integer val : tableau) { %>
+                    <li><%= val %></li>
+                <% } %>
+            </ul>
+        <% } else { %>
+            <p>Le tableau est vide.</p>
+        <% } %>
+    </div>
+</body>
+</html>
