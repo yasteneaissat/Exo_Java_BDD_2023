@@ -1,4 +1,4 @@
-public class Chaine {
+public class Chaine { 
     public static void main(String[] args) {
         String bonjour = "salut la compagnie";
 
