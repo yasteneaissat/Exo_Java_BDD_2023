@@ -1,4 +1,4 @@
-public class Chaine { 
+public class Chaine {
     public static void main(String[] args) {
         String bonjour = "salut la compagnie";
 
@@ -18,4 +18,6 @@ public class Chaine {
         return texte.substring(0, 1).toUpperCase() + texte.substring(1);
     }
 }
+
+
 
